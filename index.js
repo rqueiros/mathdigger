@@ -79,9 +79,12 @@ const setup = async () => {
     url: "https://moodle.cip.ipp.pt/",
     name: "Moodle",
     clientId: "uMs4GDOWEdMu6GI",
-    authenticationEndpoint: "https://moodle.cip.ipp.pt/auth",
-    accesstokenEndpoint: "https://moodle.cip.ipp.pt/token",
-    authConfig: { method: "JWK_SET", key: "https://moodle.cip.ipp.pt/keyset" },
+    authenticationEndpoint: "https://moodle.cip.ipp.pt/mod/lti/auth",
+    accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token",
+    authConfig: {
+      method: "JWK_SET",
+      key: "https://moodle.cip.ipp.pt/mod/lti/keyset",
+    },
   });
 };
 
