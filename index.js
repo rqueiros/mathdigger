@@ -85,6 +85,9 @@ const setup = async () => {
       key: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/keyset",
     },
   });
+  const authConfig = await platform.platformAuthConfig();
+  console.log(authConfig);
+  console.log(await platform.platformPublicKey());
 };
 
 setup();
