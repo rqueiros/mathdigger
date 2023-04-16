@@ -115,7 +115,7 @@ router.post("/login", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-router.get("/home", async (req, res) => {
+router.post("/home", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
