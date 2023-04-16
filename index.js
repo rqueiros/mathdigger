@@ -29,8 +29,6 @@ lti.setup(
 lti.onConnect(async (token, req, res) => {
   console.log("YESS");
   return res.send("It's alive!");
-  //console.log("the token is working:", token);
-  //return res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 // When receiving deep linking request redirects to deep screen
@@ -42,44 +40,14 @@ lti.onDeepLinking(async (token, req, res) => {
 lti.app.use(routes);
 
 // Setup function
-const setup = async () => {
-  console.log(process.env);
-  await lti.deploy({ port: process.env.LTI_TOOL_PORT });
+const setup = async () => {  
+  await lti.deploy({ port: 3000 });  
 
-  
-  /*
-   const app = express();
-  app.use("/", lti.app);
-  app.listen(3000);
-  */
-  /**
-   * Register platform
-   */
-
-  /*const platform = await lti.registerPlatform({
-    url: process.env.MOODLE_URL,
-    name: process.env.LTI_TOOL_NAME,
-    clientId: process.env.LTI_TOOL_CLIENT_ID,
-    authenticationEndpoint: `${process.env.MOODLE_URL}/mod/lti/auth.php`,
-    accesstokenEndpoint: `${process.env.MOODLE_URL}/mod/lti/token.php`,
-    authConfig: {
-      method: 'JWK_SET',
-      key: `${process.env.MOODLE_URL}/mod/lti/certs.php`
-    }
-  })
-
-  const authConfig = await platform.platformAuthConfig();
-  console.log(authConfig);
-  console.log(await platform.platformPublicKey())
-
-  */
-
-  // Register platform
-   
+  // Register platform   
   const platform = await lti.registerPlatform({
-    url: process.env.MOODLE_URL,
-    name: process.env.LTI_TOOL_NAME,
-    clientId: process.env.LTI_TOOL_CLIENT_ID,
+    url: "https://moodle.cip.ipp.pt/",
+    name: "Moodle",
+    clientId: "i8i67KUHTvJmy0x",
     authenticationEndpoint: "https://moodle.cip.ipp.pt/mod/lti/auth",
     accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token",
     authConfig: {
@@ -87,6 +55,7 @@ const setup = async () => {
       key: "https://moodle.cip.ipp.pt/mod/lti/keyset",
     },
   });
+  
   const authConfig = await platform.platformAuthConfig();
   console.log(authConfig);
   console.log(await platform.platformPublicKey()); 
