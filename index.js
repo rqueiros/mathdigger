@@ -18,8 +18,8 @@ lti.setup(
   {
     staticPath: path.join(__dirname, "./public"), // Path to static files
     cookies: {
-      secure: true, // Set secure to true if the testing platform is in a different domain and https is being used
-      sameSite: "None", // Set sameSite to 'None' if the testing platform is in a different domain and https is being used
+      secure: false, // Set secure to true if the testing platform is in a different domain and https is being used
+      sameSite: "", // Set sameSite to 'None' if the testing platform is in a different domain and https is being used
     },
     devMode: true, // Set DevMode to true if the testing platform is in a different domain and https is not being used
   }
@@ -78,11 +78,11 @@ const setup = async () => {
   */
 
   // Register platform
-  /* 
+   
   const platform = await lti.registerPlatform({
-    url: "https://moodle.cip.ipp.pt/",
-    name: "Moodle",
-    clientId: "i8i67KUHTvJmy0x",
+    url: process.env.MOODLE_URL,
+    name: process.env.LTI_TOOL_NAME,
+    clientId: process.env.LTI_TOOL_CLIENT_ID,
     authenticationEndpoint: "https://moodle.cip.ipp.pt/mod/lti/auth",
     accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token",
     authConfig: {
@@ -92,7 +92,7 @@ const setup = async () => {
   });
   const authConfig = await platform.platformAuthConfig();
   console.log(authConfig);
-  console.log(await platform.platformPublicKey()); */
+  console.log(await platform.platformPublicKey()); 
 };
 
 setup();
