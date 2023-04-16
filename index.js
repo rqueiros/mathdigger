@@ -1,8 +1,7 @@
 require("dotenv").config();
 
-const express = require("express");
 const path = require("path");
-const routes = require("./app/routes/index");
+const routes = require("routes");
 
 const lti = require("ltijs").Provider;
 
