@@ -7,7 +7,7 @@ const lti = require("ltijs").Provider;
 
 // Setup
 lti.setup(
-  "LTIKEY",
+  process.env.LTI_TOOL_KEY,
   {
     url: "mongodb+srv://ricardoqueiros:DyaETxwohPts8VRi@clustermathdigger.p8ushuu.mongodb.net/?retryWrites=true&w=majority",
     connection: {
@@ -18,8 +18,8 @@ lti.setup(
   {
     staticPath: path.join(__dirname, "./public"), // Path to static files
     cookies: {
-      secure: true, // Set secure to true if the testing platform is in a different domain and https is being used
-      sameSite: "None", // Set sameSite to 'None' if the testing platform is in a different domain and https is being used
+      secure: false, // Set secure to true if the testing platform is in a different domain and https is being used
+      sameSite: "", // Set sameSite to 'None' if the testing platform is in a different domain and https is being used
     },
     devMode: true, // Set DevMode to true if the testing platform is in a different domain and https is not being used
   }
@@ -48,7 +48,7 @@ const setup = async () => {
 
   const app = express();
   app.use("/lti-tool", lti.app);
-  app.listen(3000);
+  app.listen(process.env.LTI_TOOL_PORT);
 
   /*
    const app = express();
