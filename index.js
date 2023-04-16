@@ -47,7 +47,7 @@ const setup = async () => {
   const platform = await lti.registerPlatform({
     url: "https://moodle.cip.ipp.pt/",
     name: "Moodle",
-    clientId: "i8i67KUHTvJmy0x",
+    clientId: "BZQKHM38be5NNNK",
     authenticationEndpoint: "https://moodle.cip.ipp.pt/mod/lti/auth",
     accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token",
     authConfig: {
