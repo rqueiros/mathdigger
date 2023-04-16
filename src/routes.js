@@ -111,7 +111,7 @@ router.get("/members", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/members.html"));
 });
 
-router.get("/home", async (req, res) => {
+router.get("/login", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
