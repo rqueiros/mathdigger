@@ -47,7 +47,7 @@ const setup = async () => {
   await lti.deploy({ serverless: true });
 
   const app = express();
-  app.use("/lti-tool", lti.app);
+  app.use("/", lti.app);
   app.listen(process.env.LTI_TOOL_PORT);
 
   /*
