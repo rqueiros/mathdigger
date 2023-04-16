@@ -79,20 +79,20 @@ const setup = async () => {
 
   // Register platform
 
-/*    const platform = await lti.registerPlatform({
-     url: "https://moodle.cip.ipp.pt/",
-     name: "Moodle",
-     clientId: "uMs4GDOWEdMu6GI",
-     authenticationEndpoint: "https://moodle.cip.ipp.pt/mod/lti/auth",
-     accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token",
-     authConfig: {
-       method: "JWK_SET",
-       key: "https://moodle.cip.ipp.pt/mod/lti/keyset",
-     },
-   });
+  const platform = await lti.registerPlatform({
+    url: "https://moodle.cip.ipp.pt/",
+    name: "Moodle",
+    clientId: "i8i67KUHTvJmy0x",
+    authenticationEndpoint: "https://moodle.cip.ipp.pt/mod/lti/auth",
+    accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token",
+    authConfig: {
+      method: "JWK_SET",
+      key: "https://moodle.cip.ipp.pt/mod/lti/keyset",
+    },
+  });
   const authConfig = await platform.platformAuthConfig();
   console.log(authConfig);
-  console.log(await platform.platformPublicKey()); */
+  console.log(await platform.platformPublicKey());
 };
 
 setup();
