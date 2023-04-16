@@ -1,4 +1,5 @@
 require("dotenv").config();
+const express = require("express");
 const path = require("path");
 const routes = require("./src/routes");
 
@@ -42,8 +43,12 @@ lti.app.use(routes);
 
 // Setup function
 const setup = async () => {
-  //console.log(process.env);
-  await lti.deploy({ port: process.env.PORT });
+  console.log(process.env);
+  await lti.deploy({ serverless: true });
+
+  const app = express();
+  app.use("/", lti.app);
+  app.listen(3000);
 
   /*
    const app = express();
@@ -75,14 +80,14 @@ const setup = async () => {
   // Register platform
 
   await lti.registerPlatform({
-    url: "https://fgpe.dcc.fc.up.pt/moodle",
+    url: "https://moodle.cip.ipp.pt/",
     name: "Moodle",
     clientId: "mSAcO7bAiXPAHfM",
-    authenticationEndpoint: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/auth",
-    accesstokenEndpoint: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/token",
+    authenticationEndpoint: "https://moodle.cip.ipp.pt/mod/lti/auth",
+    accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token",
     authConfig: {
-      method: "RSA_KEY",
-      key: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/keyset",
+      method: "JWK_SET",
+      key: "https://moodle.cip.ipp.pt/mod/lti/keyset",
     },
   });
   const authConfig = await platform.platformAuthConfig();
