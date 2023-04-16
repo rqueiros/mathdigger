@@ -81,7 +81,7 @@ const setup = async () => {
     authenticationEndpoint: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/auth",
     accesstokenEndpoint: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/token",
     authConfig: {
-      method: "JWK_SET",
+      method: "RSA_KEY",
       key: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/keyset",
     },
   });
