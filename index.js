@@ -79,7 +79,7 @@ const setup = async () => {
 
   // Register platform
 
-   const platform = await lti.registerPlatform({
+/*    const platform = await lti.registerPlatform({
      url: "https://moodle.cip.ipp.pt/",
      name: "Moodle",
      clientId: "uMs4GDOWEdMu6GI",
@@ -92,7 +92,7 @@ const setup = async () => {
    });
   const authConfig = await platform.platformAuthConfig();
   console.log(authConfig);
-  console.log(await platform.platformPublicKey());
+  console.log(await platform.platformPublicKey()); */
 };
 
 setup();
