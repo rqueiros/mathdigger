@@ -111,7 +111,7 @@ router.get("/members", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/members.html"));
 });
 
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
@@ -163,7 +163,7 @@ router.get("/info", async (req, res) => {
 });
 
 // Wildcard route to deal with redirecting to React routes
-router.get("/", (req, res) =>
+router.get("/", async (req, res) =>
   res.sendFile(path.join(__dirname, "../public/index.html"))
 );
 
