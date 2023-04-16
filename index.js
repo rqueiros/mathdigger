@@ -27,8 +27,7 @@ lti.setup(
 
 // When receiving successful LTI launch redirects to appss
 lti.onConnect(async (token, req, res) => {
-  console.log("YESS");
-  return res.send("It's alive!");
+  return res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 // When receiving deep linking request redirects to deep screen
@@ -42,7 +41,7 @@ lti.app.use(routes);
 // Setup function
 const setup = async () => {
   await lti.deploy({ port: 3000 });
-/* 
+  /* 
   // Register platform
   const platform = await lti.registerPlatform({
     url: "https://moodle.cip.ipp.pt/",
