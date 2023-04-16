@@ -7,7 +7,7 @@ const lti = require("ltijs").Provider;
 
 // Setup
 lti.setup(
-  process.env.LTI_TOOL_KEY,
+  "LTI_KEY",
   {
     url: "mongodb+srv://ricardoqueiros:DyaETxwohPts8VRi@clustermathdigger.p8ushuu.mongodb.net/?retryWrites=true&w=majority",
     connection: {
@@ -40,10 +40,10 @@ lti.onDeepLinking(async (token, req, res) => {
 lti.app.use(routes);
 
 // Setup function
-const setup = async () => {  
-  await lti.deploy({ port: 3000 });  
+const setup = async () => {
+  await lti.deploy({ port: 3000 });
 
-  // Register platform   
+  // Register platform
   const platform = await lti.registerPlatform({
     url: "https://moodle.cip.ipp.pt/",
     name: "Moodle",
@@ -55,10 +55,10 @@ const setup = async () => {
       key: "https://moodle.cip.ipp.pt/mod/lti/keyset",
     },
   });
-  
+
   const authConfig = await platform.platformAuthConfig();
   console.log(authConfig);
-  console.log(await platform.platformPublicKey()); 
+  console.log(await platform.platformPublicKey());
 };
 
 setup();
