@@ -44,12 +44,9 @@ lti.app.use(routes);
 // Setup function
 const setup = async () => {
   console.log(process.env);
-  await lti.deploy({ serverless: true });
+  await lti.deploy({ port: process.env.LTI_TOOL_PORT });
 
-  const app = express();
-  app.use("/", lti.app);
-  app.listen(process.env.LTI_TOOL_PORT);
-
+  
   /*
    const app = express();
   app.use("/", lti.app);
