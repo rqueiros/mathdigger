@@ -42,7 +42,7 @@ lti.app.use(routes);
 // Setup function
 const setup = async () => {
   await lti.deploy({ port: 3000 });
-
+/* 
   // Register platform
   const platform = await lti.registerPlatform({
     url: "https://moodle.cip.ipp.pt/",
@@ -58,7 +58,7 @@ const setup = async () => {
 
   const authConfig = await platform.platformAuthConfig();
   console.log(authConfig);
-  console.log(await platform.platformPublicKey());
+  console.log(await platform.platformPublicKey()); */
 };
 
 setup();
