@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const path = require("path");
 const routes = require("./src/routes");
 
@@ -74,6 +72,7 @@ const setup = async () => {
   */
 
   // Register platform
+  /*
   await lti.registerPlatform({
     url: "https://moodle.cip.ipp.pt/",
     name: "Moodle",
@@ -84,7 +83,7 @@ const setup = async () => {
       method: "JWK_SET",
       key: "https://moodle.cip.ipp.pt/mod/lti/keyset",
     },
-  });
+  });*/
 };
 
 setup();
