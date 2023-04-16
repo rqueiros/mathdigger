@@ -163,9 +163,6 @@ router.get("/info", async (req, res) => {
   return res.send(info);
 });
 
-// Wildcard route to deal with redirecting to React routes
-router.get("/", async (req, res) =>
-  res.sendFile(path.join(__dirname, "../public/index.html"))
-);
+
 
 module.exports = router;
