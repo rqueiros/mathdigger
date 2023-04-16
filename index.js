@@ -40,7 +40,13 @@ lti.app.use(routes);
 
 // Setup function
 const setup = async () => {
-  await lti.deploy({ port: 3000 });
+  //await lti.deploy({ port: 3000 });
+   console.log(process.env);
+   await lti.deploy({ serverless: true });
+
+   const app = express();
+   app.use("/lti-tool", lti.app);
+   app.listen(3000);
   /* 
   // Register platform
   const platform = await lti.registerPlatform({
