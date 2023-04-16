@@ -73,18 +73,18 @@ const setup = async () => {
   */
 
   // Register platform
-  /*
+
   await lti.registerPlatform({
-    url: "https://moodle.cip.ipp.pt/",
+    url: "https://fgpe.dcc.fc.up.pt/moodle",
     name: "Moodle",
-    clientId: "uMs4GDOWEdMu6GI",
-    authenticationEndpoint: "https://moodle.cip.ipp.pt/mod/lti/auth",
-    accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token",
+    clientId: "mSAcO7bAiXPAHfM",
+    authenticationEndpoint: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/auth",
+    accesstokenEndpoint: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/token",
     authConfig: {
       method: "JWK_SET",
-      key: "https://moodle.cip.ipp.pt/mod/lti/keyset",
+      key: "https://fgpe.dcc.fc.up.pt/moodle/mod/lti/keyset",
     },
-  });*/
+  });
 };
 
 setup();
