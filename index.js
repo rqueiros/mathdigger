@@ -8,7 +8,7 @@ const lti = require("ltijs").Provider;
 
 // Setup
 lti.setup(
-  "EXAMPLEKEY",
+  "LTIKEY",
   {
     url: "mongodb+srv://ricardoqueiros:DyaETxwohPts8VRi@clustermathdigger.p8ushuu.mongodb.net/?retryWrites=true&w=majority",
     connection: {
@@ -45,17 +45,18 @@ lti.app.use(routes);
 // Setup function
 const setup = async () => {
   //console.log(process.env);
-  await lti.deploy({ port: process.env.PORT });
+  await lti.deploy({ port: 3000 });
 
-  /* const app = express();
+  /*
+   const app = express();
   app.use("/", lti.app);
   app.listen(3000);
   */
   /**
    * Register platform
    */
-  /* 
-  const platform = await lti.registerPlatform({
+
+  /*const platform = await lti.registerPlatform({
     url: process.env.MOODLE_URL,
     name: process.env.LTI_TOOL_NAME,
     clientId: process.env.LTI_TOOL_CLIENT_ID,
@@ -72,6 +73,16 @@ const setup = async () => {
   console.log(await platform.platformPublicKey())
 
   */
+
+  // Register platform
+  await lti.registerPlatform({
+    url: "https://moodle.cip.ipp.pt/",
+    name: "Moodle",
+    clientId: "uMs4GDOWEdMu6GI",
+    authenticationEndpoint: "https://moodle.cip.ipp.pt/auth",
+    accesstokenEndpoint: "https://moodle.cip.ipp.pt/token",
+    authConfig: { method: "JWK_SET", key: "https://moodle.cip.ipp.pt/keyset" },
+  });
 };
 
 setup();
