@@ -1,3 +1,4 @@
+require("dotenv").config();
 const path = require("path");
 const routes = require("./src/routes");
 
@@ -25,8 +26,8 @@ lti.setup(
 
 // When receiving successful LTI launch redirects to appss
 lti.onConnect(async (token, req, res) => {
-  console.log('YESS');
-  return res.send('It\'s alive!')
+  console.log("YESS");
+  return res.send("It's alive!");
   //console.log("the token is working:", token);
   //return res.sendFile(path.join(__dirname, "./public/index.html"));
 });
@@ -42,7 +43,7 @@ lti.app.use(routes);
 // Setup function
 const setup = async () => {
   //console.log(process.env);
-  await lti.deploy({ port: 3000 });
+  await lti.deploy({ port: process.env.PORT });
 
   /*
    const app = express();
