@@ -115,9 +115,10 @@ router.post("/login", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-router.get("/example", async (req, res) => {
-  return res.sendFile(path.join(__dirname, "../public/example.html"));
+router.get("/home", async (req, res) => {
+  return res.sendFile(path.join(__dirname, "../public/index.html"));
 });
+
 
 router.get("/deeplinking", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/resources.html"));
