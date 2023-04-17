@@ -25,7 +25,7 @@ async function getData() {
       throw new Error("Network response was not OK");
     }
     const data = await response.json();
-    return data;
+    return data.name;
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
   }
