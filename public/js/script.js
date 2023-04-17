@@ -15,7 +15,7 @@ async function getData() {
       ltik: getLtik(),
     };
     const response = await fetch("/info", {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
