@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { log } = require("console");
 const path = require("path");
 
 // Requiring Ltijs
@@ -70,6 +71,7 @@ router.post("/grades", async (req, res) => {
 
 // Names and Roles route
 router.post("/members", async (req, res) => {
+  console.log("entrei");
   try {
     const result = await lti.NamesAndRoles.getMembers(res.locals.token);
     if (result) return res.send(result.members);
@@ -114,7 +116,6 @@ router.get("/members", async (req, res) => {
 router.post("/home", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/index.html"));
 });
-
 
 router.get("/deeplinking", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/resources.html"));

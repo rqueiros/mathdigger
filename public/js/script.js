@@ -71,7 +71,7 @@ const setGrade = async (userIdToken) => {
     userId: userIdToken,
   };
 
-  $.post("/grade", body, function (result) {
+  $.post("/lti-tool/grade", body, function (result) {
     alert("done");
     console.log(result);
   });
