@@ -6,8 +6,7 @@ const getLtik = () => {
 };
 
 // get username
-const p = document.querySelector("p");
-p.innerHTML = getData();
+getData()
 
 async function getData() {
   try {
@@ -25,7 +24,8 @@ async function getData() {
       throw new Error("Network response was not OK");
     }
     const data = await response.json();
-    return data.name;
+    const p = document.querySelector("p");
+    p.innerHTML =data.name
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
   }
