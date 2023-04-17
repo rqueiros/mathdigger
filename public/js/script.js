@@ -24,8 +24,8 @@ async function getData() {
       throw new Error("Network response was not OK");
     }
     const data = await response.json();
-    const p = document.querySelector("p");
-    p.innerHTML =data.name
+    const p = document.querySelector("h2");
+    p.innerHTML = `Olá ${data.name} é com grande prazer que dou as boas vindas ao Escape Room Math Digger!`
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
   }
