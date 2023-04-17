@@ -10,7 +10,7 @@ const createForm = async () => {
     ltik: getLtik(),
     title: $('input[name="resource"]:checked').val(),
   };
-  $.post("/lti-tool/deeplink", body, function (form) {
+  $.post("/deeplink", body, function (form) {
     $("#resources").append(form);
   });
 };
@@ -19,7 +19,7 @@ const getMembers = async () => {
   const body = {
     ltik: getLtik(),
   };
-  $.post("/lti-tool/members", body, function (result) {
+  $.post("/members", body, function (result) {
     var members = [];
     for (const x of result) {
       var name = x.name;
@@ -55,7 +55,7 @@ const showGrades = async (members) => {
       ltik: getLtik(),
       userId: member,
     };
-    $.post("/lti-tool/getGrade", body, function (result) {
+    $.post("/getGrade", body, function (result) {
       console.log(result);
       var score = result.scores[0].resultScore;
       var user = result.scores[0].userId;
@@ -71,7 +71,7 @@ const setGrade = async (userIdToken) => {
     userId: userIdToken,
   };
 
-  $.post("/lti-tool/grade", body, function (result) {
+  $.post("/grade", body, function (result) {
     alert("done");
     console.log(result);
   });
