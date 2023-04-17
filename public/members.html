@@ -9,10 +9,20 @@
         <meta name="author" content="" />
         <title>LTI Tool test</title>
     </head>
-    <body>
-        <a class="clickable" onclick="window.location='members'+window.location.search;">Members</a>
-        <br>
-        <a class="clickable" onclick="window.location='example'+window.location.search;">Example</a>
+    <body onload="getMembers()">
+        <table id="members_table" class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tr>
+            </tbody>
+          </table>
     </body>
 </html>
 <script src="js/scripts.js"></script>
