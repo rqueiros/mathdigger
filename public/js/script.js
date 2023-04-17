@@ -19,7 +19,7 @@ async function getData() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(b),
+    
     });
     if (!response.ok) {
       throw new Error("Network response was not OK");
