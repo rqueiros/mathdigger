@@ -4,7 +4,7 @@ p.innerHTML = getData();
 
 async function getData() {
   try {
-    const data = {
+    const b = {
       ltik: getLtik(),
     };
     const response = await fetch("/info", {
@@ -12,7 +12,7 @@ async function getData() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(b),
     });
     if (!response.ok) {
       throw new Error("Network response was not OK");
