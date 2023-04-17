@@ -51,7 +51,7 @@ const setup = async () => {
     accesstokenEndpoint: "https://moodle.cip.ipp.pt/mod/lti/token.php",
     authConfig: {
       method: "JWK_SET",
-      key: "https://moodle.cip.ipp.pt/mod/lti/keyset.php",
+      key: "https://moodle.cip.ipp.pt/mod/lti/certs.php",
     },
   });
 
