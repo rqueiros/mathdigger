@@ -27,7 +27,8 @@ lti.setup(
 
 // When receiving successful LTI launch redirects to appss
 lti.onConnect(async (token, req, res) => {
-  return res.sendFile(path.join(__dirname, "./public/index.html"));
+  //return res.sendFile(path.join(__dirname, "./public/index.html"));
+  return lti.redirect(res, "/login");
 });
 
 // When receiving deep linking request redirects to deep screen
