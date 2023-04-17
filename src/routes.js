@@ -111,14 +111,13 @@ router.get("/members", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/members.html"));
 });
 
-router.post("/login", async (req, res) => {
+router.get("/login", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
 router.post("/home", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/index.html"));
 });
-
 
 router.get("/deeplinking", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/resources.html"));
@@ -162,7 +161,5 @@ router.get("/info", async (req, res) => {
 
   return res.send(info);
 });
-
-
 
 module.exports = router;
