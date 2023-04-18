@@ -39,7 +39,7 @@ const submitScore = async () => {
   alert(b)
 
   try {
-    const response = await fetch(`/grade`, {
+    const response = await fetch(`/grade?ltik=${globalLtik}`, {
       method: "POST",
       body: JSON.stringify(b),
     });
