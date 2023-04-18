@@ -17,22 +17,19 @@ router.post("/getGrade", async (req, res) => {
 
 // Grading route
 router.post("/grade", async (req, res) => {
-  console.log("ENTREI");
+  console.log(req.body.userId + " " + req.body.grade);
   try {
     const idtoken = res.locals.token; // IdToken
-    alert(idtoken);
     const score = req.body.grade; // User numeric score sent in the body
-    alert(score);
     // Creating Grade object
     const gradeObj = {
-      //userId: req.body.userId,
-      userId: idtoken.user,
+      userId: "3",
       scoreGiven: score,
-      scoreMaximum: 99,
-      activityProgress: "Submitted",
+      scoreMaximum: 100,
+      activityProgress: "Completed",
       gradingProgress: "FullyGraded",
     };
-    alert(gradeObj)
+
     // Selecting linetItem ID
     let lineItemId = idtoken.platformContext.endpoint.lineitem; // Attempting to retrieve it from idtoken
     if (!lineItemId) {
@@ -42,6 +39,7 @@ router.post("/grade", async (req, res) => {
       const lineItems = response.lineItems;
       if (lineItems.length === 0) {
         // Creating line item if there is none
+        console.log("Creating new line item");
         const newLineItem = {
           scoreMaximum: 100,
           label: "Grade",
@@ -54,21 +52,15 @@ router.post("/grade", async (req, res) => {
     }
 
     // Sending Grade
-    /*const responseGrade = await lti.Grade.submitScore(
+    const responseGrade = await lti.Grade.submitScore(
       idtoken,
       lineItemId,
       gradeObj
-    );*/
-    const x = {
-      idtoken: idtoken,
-      lineItemId: lineItemId,
-      gradeObj: gradeObj,
-    };
-    alert(x)
-    //return res.send(x);
+    );
+    return res.send(responseGrade);
   } catch (err) {
-    //return res.status(500).send({ err: err.message });
-    return res.send("xxx");
+    console.log(err.message);
+    return res.status(500).send({ err: err.message });
   }
 });
 
