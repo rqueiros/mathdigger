@@ -23,7 +23,7 @@ router.post("/grade", async (req, res) => {
     const score = req.body.grade; // User numeric score sent in the body
     // Creating Grade object
     const gradeObj = {
-      userId: 3,
+      userId: req.body.userId,
       scoreGiven: score,
       scoreMaximum: 100,
       activityProgress: "Completed",
