@@ -35,13 +35,11 @@ const submitScore = async () => {
     ltik: getLtik(),
     grade: +document.querySelector("input").value,
   };
+  alert(b)
 
   try {
     const response = await fetch(`/grade`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(b),
     });
     if (!response.ok) {
