@@ -33,15 +33,16 @@ async function getData() {
 
 const submitScore = async () => {
   const b = {
-    ltik: globalLtik,
-    grade: +document.querySelector("input").value,
-    userId: "3"
+    grade: +document.querySelector("input").value,    
   };
   
 
   try {
     const response = await fetch('/grade', {
-      method: "POST",       
+      method: "POST",
+      headers: {
+         Authorization: 'Bearer ' + getLtik() 
+      },
       body: JSON.stringify(b),
     });
     if (!response.ok) {
