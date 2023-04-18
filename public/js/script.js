@@ -6,7 +6,7 @@ const getLtik = () => {
 };
 
 // get username
-getData()
+getData();
 
 async function getData() {
   try {
@@ -18,18 +18,45 @@ async function getData() {
       headers: {
         "Content-Type": "application/json",
       },
-    
     });
     if (!response.ok) {
       throw new Error("Network response was not OK");
     }
     const data = await response.json();
-    const p = document.querySelector("h2");
-    p.innerHTML = `Olá ${data.name} é com grande prazer que dou as boas vindas ao Escape Room Math Digger!`
+    const h = document.querySelector("h2");
+    h.innerHTML = `Welcome ${data.name} to the Math-Digger Escape Room!`;
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
   }
 }
+
+const b = document.querySelector("button");
+b.addEventListener("click", submitScore);
+
+const submitScore = async () => {
+  
+  const b = {
+    ltik: getLtik(),
+    grade: +document.querySelector("input").value,
+  };
+
+  try {
+    const response = await fetch(`/grade`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(b),
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not OK");
+    }
+    const data = await response.json();
+    alert(data);
+  } catch (error) {
+    console.error("There was a problem with the fetch operation:", error);
+  }
+};
 
 const createForm = async () => {
   const body = {

@@ -16,7 +16,7 @@ router.post("/getGrade", async (req, res) => {
 });
 
 // Grading route
-router.post("/grades", async (req, res) => {
+router.post("/grade", async (req, res) => {
   console.log("ENTREI");
   try {
     const idtoken = res.locals.token; // IdToken
@@ -25,7 +25,7 @@ router.post("/grades", async (req, res) => {
     const gradeObj = {
       //userId: req.body.userId,
       userId: idtoken.user,
-      scoreGiven: 3,
+      scoreGiven: score,
       scoreMaximum: 99,
       activityProgress: "Submitted",
       gradingProgress: "FullyGraded",
@@ -121,7 +121,7 @@ router.get("/deeplinking", async (req, res) => {
   return res.sendFile(path.join(__dirname, "../public/resources.html"));
 });
 
-// Return available deep linking resources
+// Return available deep linking resourcesr
 router.get("/resources", async (req, res) => {
   const resources = [
     {
