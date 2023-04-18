@@ -32,7 +32,7 @@ router.post("/grade", async (req, res) => {
       activityProgress: "Submitted",
       gradingProgress: "FullyGraded",
     };
-
+    alert(gradeObj)
     // Selecting linetItem ID
     let lineItemId = idtoken.platformContext.endpoint.lineitem; // Attempting to retrieve it from idtoken
     if (!lineItemId) {
@@ -54,17 +54,18 @@ router.post("/grade", async (req, res) => {
     }
 
     // Sending Grade
-    const responseGrade = await lti.Grade.submitScore(
+    /*const responseGrade = await lti.Grade.submitScore(
       idtoken,
       lineItemId,
       gradeObj
-    );
+    );*/
     const x = {
       idtoken: idtoken,
       lineItemId: lineItemId,
       gradeObj: gradeObj,
     };
-    return res.send(x);
+    alert(x)
+    //return res.send(x);
   } catch (err) {
     //return res.status(500).send({ err: err.message });
     return res.send("xxx");
