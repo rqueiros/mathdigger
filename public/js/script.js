@@ -41,10 +41,7 @@ const submitScore = async () => {
 
   try {
     const response = await fetch('/grade', {
-      method: "POST",
-      headers: {
-         Authorization: 'Bearer ' + getLtik() 
-      },
+      method: "POST",       
       body: JSON.stringify(b),
     });
     if (!response.ok) {
