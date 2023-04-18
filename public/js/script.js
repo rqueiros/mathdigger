@@ -35,8 +35,6 @@ const submitScore = async () => {
   const b = {
     grade: +document.querySelector("input").value,    
   };
-  
-
   try {
     const response = await fetch('/grade', {
       method: "POST",
@@ -48,8 +46,7 @@ const submitScore = async () => {
     if (!response.ok) {
       throw new Error("Network response was not OK");
     }
-    const data = await response.json();
-    alert(data);
+    const data = await response.json();    
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
   }
