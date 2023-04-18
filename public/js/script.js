@@ -5,6 +5,7 @@ const getLtik = () => {
   return ltik;
 };
 
+const globalLtik = getLtik(); 
 // get username
 getData();
 
@@ -32,7 +33,7 @@ async function getData() {
 
 const submitScore = async () => {
   const b = {
-    ltik: getLtik(),
+    ltik: globalLtik,
     grade: +document.querySelector("input").value,
   };
   alert(b)
