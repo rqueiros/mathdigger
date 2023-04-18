@@ -20,7 +20,9 @@ router.post("/grade", async (req, res) => {
   console.log("ENTREI");
   try {
     const idtoken = res.locals.token; // IdToken
+    alert(idtoken);
     const score = req.body.grade; // User numeric score sent in the body
+    alert(score);
     // Creating Grade object
     const gradeObj = {
       //userId: req.body.userId,
