@@ -30,11 +30,7 @@ async function getData() {
   }
 }
 
-const b = document.querySelector("button");
-b.addEventListener("click", submitScore);
-
 const submitScore = async () => {
-  
   const b = {
     ltik: getLtik(),
     grade: +document.querySelector("input").value,
@@ -57,6 +53,10 @@ const submitScore = async () => {
     console.error("There was a problem with the fetch operation:", error);
   }
 };
+
+const b = document.querySelector("button");
+b.addEventListener("click", submitScore);
+
 
 const createForm = async () => {
   const body = {
