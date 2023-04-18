@@ -35,12 +35,12 @@ const submitScore = async () => {
   const b = {
     ltik: globalLtik,
     grade: +document.querySelector("input").value,
-    userId: 3
+    userId: "3"
   };
   
 
   try {
-    const response = await fetch(`/grade`, {
+    const response = await fetch('/grade', {
       method: "POST",
       headers: {
          Authorization: 'Bearer ' + getLtik() 
